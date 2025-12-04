@@ -1,0 +1,129 @@
+/* Animated background for ReelsSection - subtle, elegant, and responsive */
+.reels-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.reels-gradient {
+  position: absolute;
+  inset: -12%;
+  /* match CategoryCardsSection cream gradient so sections feel on the same page */
+  background: linear-gradient(180deg, #fffaf6 0%, #fff7f0 30%, #fff4e6 100%);
+  filter: blur(8px) saturate(115%);
+  transform: scale(1.0);
+  animation: gradientShift 20s ease-in-out infinite;
+  opacity: 1;
+}
+
+/* floating blurred shapes */
+.floating-shape {
+  position: absolute;
+  border-radius: 22px;
+  filter: blur(8px) saturate(125%);
+  opacity: 0.32; /* increased so ornaments are more visible */
+  mix-blend-mode: screen;
+  transform-origin: center;
+}
+
+/* subtle float animation for ornaments */
+@keyframes ornamentFloat {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+.floating-shape { animation: ornamentFloat 12s ease-in-out infinite; }
+
+/* light sheen overlay (same as category) */
+.reels-bg .light-sheen { position: absolute; inset: 0; pointer-events: none; }
+/* warm shapes in cream/gold/pale peach */
+.shape-1 { width: 460px; height: 220px; background: rgba(255,236,179,0.16); top: 2%; left: -8%; animation: floatX 10s ease-in-out infinite; }
+.shape-2 { width: 360px; height: 180px; background: rgba(255,249,230,0.12); top: 22%; right: -6%; animation: floatY 12s ease-in-out infinite; }
+.shape-3 { width: 300px; height: 300px; background: rgba(255,224,178,0.10); bottom: 6%; left: 6%; animation: floatY 14s ease-in-out infinite; }
+.shape-4 { width: 560px; height: 280px; background: rgba(255,243,210,0.10); bottom: -6%; right: -10%; animation: floatX 16s ease-in-out infinite; }
+
+/* small drifting particles */
+.particle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  /* bright white / silver sparkle */
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,1), rgba(230,230,235,0.95));
+  box-shadow: 0 0 14px rgba(255,255,255,0.9), 0 0 28px rgba(200,200,210,0.25) inset;
+  filter: blur(0.6px);
+  opacity: 0.98;
+  animation-name: sparkFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+/* different starting positions + durations + delays create natural fall */
+.particle-1 { left: 20%; top: -6%; animation-duration: 20s; animation-delay: 0s; }
+.particle-2 { left: 75%; top: -12%; animation-duration: 26s; animation-delay: 2s; }
+.particle-3 { left: 48%; top: -4%; animation-duration: 22s; animation-delay: 6s; }
+.particle-4 { left: 12%; top: -20%; animation-duration: 28s; animation-delay: 4s; }
+.particle-5 { left: 56%; top: -8%; animation-duration: 24s; animation-delay: 1s; }
+
+/* additional sparkles */
+.particle-6 { left: 8%; top: -10%; animation-duration: 30s; animation-delay: 3s; width: 22px; height: 22px; }
+.particle-7 { left: 88%; top: -14%; animation-duration: 34s; animation-delay: 6s; width: 18px; height: 18px; }
+.particle-8 { left: 36%; top: -6%; animation-duration: 26s; animation-delay: 8s; width: 24px; height: 24px; }
+.particle-9 { left: 62%; top: -18%; animation-duration: 28s; animation-delay: 5s; width: 20px; height: 20px; }
+.particle-10 { left: 42%; top: -22%; animation-duration: 32s; animation-delay: 2s; width: 26px; height: 26px; }
+.particle-11 { left: 24%; top: -16%; animation-duration: 36s; animation-delay: 10s; width: 16px; height: 16px; }
+.particle-12 { left: 70%; top: -8%; animation-duration: 30s; animation-delay: 4s; width: 28px; height: 28px; }
+
+/* even more sparkles */
+.particle-13 { left: 6%; top: -6%; animation-duration: 22s; animation-delay: 2s; width: 18px; height: 18px; }
+.particle-14 { left: 92%; top: -10%; animation-duration: 36s; animation-delay: 8s; width: 20px; height: 20px; }
+.particle-15 { left: 50%; top: -14%; animation-duration: 30s; animation-delay: 5s; width: 24px; height: 24px; }
+.particle-16 { left: 30%; top: -22%; animation-duration: 34s; animation-delay: 3s; width: 22px; height: 22px; }
+.particle-17 { left: 78%; top: -4%; animation-duration: 26s; animation-delay: 7s; width: 16px; height: 16px; }
+.particle-18 { left: 64%; top: -20%; animation-duration: 38s; animation-delay: 10s; width: 30px; height: 30px; }
+
+@keyframes sparkFall {
+  0% {
+    transform: translateY(-4vh) translateX(0) scale(1) rotate(0deg);
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 0.98;
+    transform: translateY(45vh) translateX(8px) scale(1.05) rotate(12deg);
+  }
+  100% {
+    transform: translateY(120vh) translateX(20px) scale(0.9) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes gradientShift {
+  0% { transform: scale(1.02) translateY(0) rotate(0deg); }
+  50% { transform: scale(1.07) translateY(-8px) rotate(1deg); }
+  100% { transform: scale(1.02) translateY(0) rotate(0deg); }
+}
+
+@keyframes floatY {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes floatX {
+  0% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(18px) rotate(-1.5deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+@keyframes particleDrift {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.75; }
+  50% { transform: translateY(-40px) translateX(14px) scale(1.15); opacity: 0.9; }
+  100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.75; }
+}
+
+/* responsive adjustments */
+@media (max-width: 768px) {
+  .shape-1, .shape-4 { display: none; }
+  .reels-gradient { filter: blur(34px); }
+}
