@@ -87,7 +87,7 @@ const MainHeader = ({ logoUrl = '../media/logo/logo.jpg', onMenuClick }) => {
   return (
     <>
       <header
-        className={` border-b bg-white border-transparent sticky top-0 z-50 transition-shadow duration-200 ${
+        className={` border-b bg-white w-screen border-transparent sticky top-0 z-50 transition-shadow duration-200 ${
           isScrolled ? 'shadow-md' : ''
         }`}
       >
